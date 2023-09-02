@@ -79,14 +79,7 @@ class Cart:
         return total_price
 
     def buy(self):
-        """
-        Метод покупки.
-        Учтите, что товаров может не хватать на складе.
-        В этом случае нужно выбросить исключение ValueError
-        """
         for product in self.products.keys():
-            if product.check_quantity(self.products[product]):
-                product.buy(self.products[product])
-            else:
-                raise ValueError
+            product.buy(self.products[product])
+
         self.clear()
